@@ -1,0 +1,20 @@
+version: "3"
+services:
+  book-reading:
+    image: book-reading
+    ports:
+      - "8082:8082"
+    networks:
+      - book-store-reading
+    depends_on:
+      - book-store
+ 
+  book-store:
+    image: book-store
+    ports:
+      - "8081:8081"
+    networks:
+      - book-store-reading 
+
+networks:
+  book-store-reading:
